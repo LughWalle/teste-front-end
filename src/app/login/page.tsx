@@ -22,9 +22,6 @@ const Login = () => {
       <Button variant={'primary'} href='/signin'>
         Login
       </Button>
-      <Button variant={'danger'} href='/signup'>
-        SingUp
-      </Button>
     </div>
   );
 };

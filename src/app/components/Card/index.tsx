@@ -12,7 +12,7 @@ const Card = ({ name, image, description }: {
       <div className={styles.content}>
         <h1>{name}</h1>
         <div className={styles.img}>
-          <Image className='object-cover' src={image} alt={`${name} botle`} fill />
+          <Image className='object-cover' src={image} alt={`${name} botle`} width={40} height={60} />
         </div>
         <p>{description}</p>
       </div>
