@@ -3,6 +3,7 @@ import React from 'react';
 import Button from '../Button';
 import { signOut, useSession } from 'next-auth/react';
 import Image from 'next/image';
+import Lugh from '@/lib/images/lugh.png'
 import Link from 'next/link';
 
 const Nav = () => {
@@ -18,12 +19,12 @@ const Nav = () => {
             <Button variant={'primary'} onClick={signOut}>
               signOut
             </Button>
-            {/* <Image
+            <Image
               alt='image profile'
-              src={session?.user?.image || ''}
+              src={session?.user?.image || Lugh}
               width={50}
               height={50}
-            /> */}
+            />
           </>
         )}
       </header>

@@ -1,3 +1,4 @@
+'use client'
 import Button from '@/app/components/Button';
 import { useEffect } from 'react';
 import { getSession } from 'next-auth/react';
