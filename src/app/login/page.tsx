@@ -1,5 +1,5 @@
 'use client';
-import Button from '@/components/Button';
+import Button from '@/app/components/Button';
 import { getSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
