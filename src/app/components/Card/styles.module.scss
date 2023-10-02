@@ -1,0 +1,14 @@
+.container {
+    border: 2px solid;
+    width: 14rem;
+    height: 50vh;
+    .content {
+        display: flex;
+        .img {
+            border: 2px solid red;
+            height: 5rem;
+            width: 5rem;
+        }
+
+    }
+}
