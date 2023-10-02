@@ -4,7 +4,7 @@ import Button from '../Button';
 import { getSession, signIn } from 'next-auth/react';
 import { Field, Form, Formik } from 'formik';
 import { useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { redirect, useRouter } from 'next/navigation';
 
 interface Credentials {
   email: string;
@@ -12,7 +12,7 @@ interface Credentials {
 }
 
 const SignInPage = () => {
-  const [isStartedSession, setIsStartedSession] = useState(true)
+  const [isAuthError, setIsAuthError] = useState(false)
   const router = useRouter();
   const validSchema = yup.object({
     email: yup
@@ -27,9 +27,8 @@ const SignInPage = () => {
     async function checkSession() {
       const session = await getSession();
       if (session) {
-        router.push('/');
-      } else {
-        setIsStartedSession(false)
+        router.back()
+        
       }
     }
 
@@ -43,14 +42,20 @@ const SignInPage = () => {
           password: '',
         }}
         onSubmit={(values) => {
-          alert(JSON.stringify(values, null, 2));
+          try {
+            signIn('credentials', {
+              email: values.email,
+              password: values.password,
+            });
+          } catch (error) {
+            setIsAuthError(true); // Define isAuthenticationError como verdadeiro em caso de erro de autenticação
+          }
         }}
         validationSchema={validSchema}
       >
         {({ errors, touched, values: {  email, password } }) => {
           return (
             <Form>
-              {isStartedSession && <p>Senha ou usuario incorreto</p>}
               <label htmlFor='email'>E-mail</label>
               <Field id='email' name='email' type='email' />
               {touched.email && errors.email ? <div>{errors.email}</div> : null}
@@ -58,10 +63,7 @@ const SignInPage = () => {
               {!!errors.password && (
                 <p className='text-error'>{errors.password}</p>
               )}
-              <Button variant='danger' onClick={() => signIn('credentials', {
-                email,
-                password,
-              })}>Entrar</Button>
+              <Button variant='danger'>Entrar</Button>
             </Form>
           );
         }}

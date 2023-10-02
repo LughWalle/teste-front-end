@@ -44,6 +44,7 @@ export const authOptions: NextAuthOptions = {
         ) {
           return user;
         } else {
+          throw new Error('senha e/ou email inválidos')
           return null;
         }
       },
@@ -51,6 +52,6 @@ export const authOptions: NextAuthOptions = {
   ],
   pages: {
     signIn: '/login',
-    error: '/login',
+    error: '/errorlogin'
   },
 };

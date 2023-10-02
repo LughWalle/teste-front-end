@@ -15,7 +15,7 @@ const Login = () => {
     }
 
     checkSession();
-  }, [router]);
+  }, []);
   return (
     <div>
       <h1>Entre e divirta-se</h1>
