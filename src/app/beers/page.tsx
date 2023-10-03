@@ -28,10 +28,10 @@ const Beers = () => {
 
   getBeers();
   return (
-    <main>
+    <main className={styles.container}>
       <input type='text' placeholder='search' />
-      <section className={styles.cards}>
-        <ul>
+      <section className={styles.section}>
+        <ul className={styles.cards}>
           {beers?.map(({ name, image_url, description }) => (
             <li key={`${name}${image_url}`}>
               <Card

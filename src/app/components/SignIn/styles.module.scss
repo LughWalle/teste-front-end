@@ -1,0 +1,17 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    gap: .2rem;
+    .form {
+        display: flex;
+        width: 25rem;
+        flex-direction: column;
+        gap: 1.2rem;
+        label {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+}

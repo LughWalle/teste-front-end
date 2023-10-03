@@ -5,7 +5,7 @@ import { getSession, signIn } from 'next-auth/react';
 import { Field, Form, Formik } from 'formik';
 import { useEffect, useState } from 'react';
 import { redirect, useRouter } from 'next/navigation';
-
+import styles from './styles.module.scss';
 interface Credentials {
   email: string;
   password: string;
@@ -35,7 +35,7 @@ const SignInPage = () => {
     checkSession();
   }, [router]);
   return (
-    <>
+    <div className={styles.container}>
       <Formik
         initialValues={{
           email: '',
@@ -55,11 +55,15 @@ const SignInPage = () => {
       >
         {({ errors, touched, values: {  email, password } }) => {
           return (
-            <Form>
-              <label htmlFor='email'>E-mail</label>
+            <Form className={styles.form}>
+              <label htmlFor='email'>E-mail
               <Field id='email' name='email' type='email' />
+              </label>
               {touched.email && errors.email ? <div>{errors.email}</div> : null}
+              <label htmlFor='password'>
+                Senha
               <Field name='password' className='input input-bordered'></Field>
+              </label>
               {!!errors.password && (
                 <p className='text-error'>{errors.password}</p>
               )}
@@ -74,7 +78,7 @@ const SignInPage = () => {
           google
         </Button>
       </div>
-    </>
+    </div>
   );
 };
 

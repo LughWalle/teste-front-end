@@ -1,6 +1,11 @@
-.cards {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 2px;
+.container {
+    .section {
+      margin-top: 5rem;
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+  }
 }
