@@ -68,3 +68,15 @@ O projeto consiste na ultilização da [Punk API](https://punkapi.com/documentat
 - Modal de login
 - Home com bebida aleatoria
 - Lista de bebidas
+
+![image](https://github.com/LughWalle/teste-front-end/assets/48294395/0e5cb3f6-d571-458e-b67b-3b032e358ca1)
+![image](https://github.com/LughWalle/teste-front-end/assets/48294395/96a923fc-38c7-4b45-936e-e502f209aac6)
+![image](https://github.com/LughWalle/teste-front-end/assets/48294395/bfd1e67c-37f1-493f-a88f-6c63dd479f87)
+![image](https://github.com/LughWalle/teste-front-end/assets/48294395/6c6db9c6-8c35-4349-a7a2-663a56a07dd9)
+![image](https://github.com/LughWalle/teste-front-end/assets/48294395/d8ad6de8-818f-41b3-9465-bf14632bb71b)
+![image](https://github.com/LughWalle/teste-front-end/assets/48294395/85f8125d-4dbc-4f4e-832d-e6ad60849269)
+
+
+
+
+
