@@ -27,8 +27,8 @@ const SignInPage = () => {
     async function checkSession() {
       const session = await getSession();
       if (session) {
-        router.back()
-        
+        router.push('/')
+        router.refresh()
       }
     }
 
@@ -46,9 +46,10 @@ const SignInPage = () => {
             signIn('credentials', {
               email: values.email,
               password: values.password,
+              callbackUrl: 'https://localhost:3000'
             });
           } catch (error) {
-            setIsAuthError(true); // Define isAuthenticationError como verdadeiro em caso de erro de autenticação
+            setIsAuthError(true);
           }
         }}
         validationSchema={validSchema}
@@ -62,7 +63,7 @@ const SignInPage = () => {
               {touched.email && errors.email ? <div>{errors.email}</div> : null}
               <label htmlFor='password'>
                 Senha
-              <Field name='password' className='input input-bordered'></Field>
+              <Field name='password' type='password' className='input input-bordered'></Field>
               </label>
               {!!errors.password && (
                 <p className='text-error'>{errors.password}</p>
