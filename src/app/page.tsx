@@ -1,18 +1,31 @@
-import styles from './page.module.css'
-import { getServerSession } from 'next-auth'
-import { authOptions } from '@/lib/auth'
+'use client';
+import styles from './page.module.scss';
+import { getServerSession } from 'next-auth';
+import { authOptions } from '@/lib/auth';
+import { useContext } from 'react';
+import { BeersContext } from './context/BeerContext';
+import { getSession } from 'next-auth/react';
+import Card from './components/Card';
 
-export default async function Home() {
-  const session = await getServerSession(authOptions)
-
+export default function Home() {
+  const { randomB } = useContext(BeersContext);
   return (
     <main className={styles.main}>
-      {session ? (
-        <h1>{`SEJA BEM VINDO ${session.user?.name}`}</h1>
-      ) : (
-        <h1>OLA! ENTRE</h1>
-      )}
-      Home
+      <h1>SEJA BEM VINDO</h1>
+      <p>Aqui esta uma recomendação da casa!</p>
+      <ul className={styles.card}>
+        {randomB.map((b) => {
+          return (
+            <li key={`${b.name}-${b.description}`}>
+              <Card
+                name={b.name}
+                image={b.image_url}
+                description={b.description}
+              />
+            </li>
+          );
+        })}
+      </ul>
     </main>
-  )
+  );
 }

@@ -3,6 +3,7 @@ import Button from '@/app/components/Button';
 import { getSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
+import styles from './styles.module.scss';
 
 const Login = () => {
   const router = useRouter();
@@ -17,7 +18,7 @@ const Login = () => {
     checkSession();
   }, []);
   return (
-    <div>
+    <div className={styles.container}>
       <h1>Entre e divirta-se</h1>
       <Button variant={'primary'} href='/signin'>
         Login

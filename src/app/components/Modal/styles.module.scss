@@ -11,6 +11,7 @@
   .modalContent {
     background-color: #fff;
     margin: 20% auto;
+    max-width: 50rem;
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
@@ -20,6 +21,7 @@
       float: right;
       font-size: 28px;
       font-weight: bold;
+      line-height: 0;
       cursor: pointer;
     }
   }

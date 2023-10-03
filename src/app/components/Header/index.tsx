@@ -33,6 +33,8 @@ const Nav = () => {
           />
           <div className={cn(styles.menu, { [styles.MenuOpen]: isMenuOpen })}>
             <Button type='link' className={styles.btn} href={'/beers'}>Cervejas</Button>
+            <Button type='link' className={styles.btn} href={'/'}>Home</Button>
+            
             {session ? (
               <Button variant='primary' className={styles.btn} onClick={() => {
                 signOut()

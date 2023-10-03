@@ -1,13 +1,14 @@
 'use client';
 import { useSession } from 'next-auth/react';
 import { redirect } from 'next/navigation';
-import { useEffect, useState } from 'react';
-import { getBeers } from '../api/server.js';
+import { useContext, useEffect, useState } from 'react';
 import Card from '@/app/components/Card';
 import styles from './styles.module.scss';
+import { BeersContext } from '../context/BeerContext';
+import Button from '../components/Button';
 
 const Beers = () => {
-  const [beers, setBeers] = useState([]);
+  const { getBeers, allBeers, pages, msgError } = useContext(BeersContext);
   const { data: session } = useSession({
     required: true,
     onUnauthenticated() {
@@ -15,24 +16,16 @@ const Beers = () => {
     },
   });
 
-  const beersList = async () => {
-    const b = await getBeers().then((res) => {
-      setBeers(res);
-    });
-  };
   useEffect(() => {
-    beersList();
-  }, []);
+		getBeers(pages)	
+	}, [])
 
-  console.log('tadjofv,d', beers);
-
-  getBeers();
   return (
     <main className={styles.container}>
       <input type='text' placeholder='search' />
       <section className={styles.section}>
         <ul className={styles.cards}>
-          {beers?.map(({ name, image_url, description }) => (
+          {allBeers?.map(({ name, image_url, description }) => (
             <li key={`${name}${image_url}`}>
               <Card
                 name={name}
@@ -42,6 +35,10 @@ const Beers = () => {
             </li>
           ))}
         </ul>
+        {
+          msgError ? <p>{msgError}</p> : <Button className={styles.btnMore} onClick={() => getBeers(pages)} >MAIS</Button>
+
+        }
       </section>
     </main>
   );

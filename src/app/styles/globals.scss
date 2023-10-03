@@ -132,3 +132,11 @@ sub {bottom: -0.25em;}
 
 /* standardize any monospaced elements */
 pre, code, kbd, samp {font-family: monospace, sans-serif;}
+
+@media (prefers-color-scheme: dark) {
+  
+    body {
+        color: #000 !important;
+    }
+
+  }

@@ -12,7 +12,7 @@ const Card = ({ name, image, description, ...rest }: {
       <div className={styles.content}>
         <h1 className={styles.title}>{name}</h1>
         <div className={styles.about}>
-          <Image style={{height: 'auto'}} src={image} alt={`${name} botle`} width={40} height={60} />
+          <Image style={{height: 'auto', width: 50}} src={image} alt={`${name} botle`} width={40} height={60} />
           <p className={styles.desc}>{description}</p>
         </div>
       </div>
