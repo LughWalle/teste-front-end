@@ -1,14 +1,48 @@
+@import '../../styles/variables.scss';
 .container {
-    border: 2px solid;
-    width: 14rem;
-    height: 50vh;
+  border-radius: 1.5rem;
+  box-shadow: 1px 1px 5px 1px black;
+  width: 40rem;
+  height: 20rem;
+  padding: 0.5rem;
+  transition: transform 0.3s;
+  overflow: hidden;
+  background-color: $color-tertiary;
+  &:hover {
+    transform: scale(1.1);
     .content {
-        display: flex;
-        .img {
-            border: 2px solid red;
-            height: 5rem;
-            width: 5rem;
+      .about {
+        p {
+          white-space: normal; /* Mostra o texto completo no hover */
+          overflow: auto;
+          display: -webkit-box;
         }
-
+      }
     }
+  }
+  .content {
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    height: 100%;
+    .title {
+      font-size: $font-small;
+      font-weight: 600;
+    }
+    .about {
+      display: flex;
+      font-size: $font-x-small;
+    //   .img {
+    //     height: auto;
+    //   }
+      .desc {
+        margin: 2rem;
+        white-space: normal;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 6;
+        -webkit-box-orient: vertical;
+      }
+    }
+  }
 }

@@ -1,11 +1,15 @@
 import React from 'react';
 import Link from 'next/link';
+import cn from 'classnames';
+import styles from './styles.module.scss';
 
 interface ButtonProps {
-  variant: 'primary' | 'secondary' | 'danger';
+  variant?: 'primary' | 'secondary' | 'danger';
+  type?: 'button' | 'link';
   onClick?: VoidFunction;
   href?: string; // Adicione a prop "href" opcional
   children: React.ReactNode;
+  className?: string;
 }
 
 const buttonStyles: { [key: string]: React.CSSProperties } = {
@@ -24,35 +28,26 @@ const buttonStyles: { [key: string]: React.CSSProperties } = {
 };
 
 const Button: React.FC<ButtonProps> = ({
-  variant,
+  variant = 'primary',
+  type = 'button',
   onClick,
   children,
   href,
+  className,
   ...rest
 }) => {
   return href ? (
     <Link
       href={href}
+      className={cn(className, styles[type], styles[variant])}
+      onClick={onClick}
       {...rest}
-      style={{
-        ...buttonStyles[variant],
-        padding: '10px 20px',
-        borderRadius: '5px',
-        cursor: 'pointer',
-        textDecoration: 'none', // Remova a sublinhado do link
-        display: 'inline-block', // Garante que o link se comporte como um botão
-      }}
     >
       {children}
     </Link>
   ) : (
     <button
-      style={{
-        ...buttonStyles[variant],
-        padding: '10px 20px',
-        borderRadius: '5px',
-        cursor: 'pointer',
-      }}
+      className={cn(className, styles[type], styles[variant])}
       {...rest}
       onClick={onClick}
     >

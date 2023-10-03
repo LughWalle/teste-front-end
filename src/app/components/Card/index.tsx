@@ -10,11 +10,11 @@ const Card = ({ name, image, description, ...rest }: {
   return (
     <div className={styles.container} {...rest}>
       <div className={styles.content}>
-        <h1>{name}</h1>
-        <div className={styles.img}>
-          <Image className='object-cover' src={image} alt={`${name} botle`} width={40} height={60} />
+        <h1 className={styles.title}>{name}</h1>
+        <div className={styles.about}>
+          <Image style={{height: 'auto'}} src={image} alt={`${name} botle`} width={40} height={60} />
+          <p className={styles.desc}>{description}</p>
         </div>
-        <p>{description}</p>
       </div>
     </div>
   );

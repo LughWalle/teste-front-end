@@ -1,0 +1,21 @@
+@import '../../styles/variables.scss';
+.link {
+  text-decoration: none;
+  display: inline-block;
+}
+
+.button {
+  padding: 10px 20px;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  &:hover {
+    scale: 1.1;
+  }
+
+  &.primary {
+    background-color: $color-secondary;
+    color: white;
+  }
+}
