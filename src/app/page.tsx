@@ -1,10 +1,7 @@
 'use client';
 import styles from './page.module.scss';
-import { getServerSession } from 'next-auth';
-import { authOptions } from '@/lib/auth';
 import { useContext } from 'react';
 import { BeersContext } from './context/BeerContext';
-import { getSession } from 'next-auth/react';
 import Card from './components/Card';
 
 export default function Home() {

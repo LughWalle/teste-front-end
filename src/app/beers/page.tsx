@@ -22,7 +22,6 @@ const Beers = () => {
 
   return (
     <main className={styles.container}>
-      <input type='text' placeholder='search' />
       <section className={styles.section}>
         <ul className={styles.cards}>
           {allBeers?.map(({ name, image_url, description }) => (

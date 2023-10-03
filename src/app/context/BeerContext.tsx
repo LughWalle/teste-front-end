@@ -26,14 +26,11 @@ export const BeersProvider = ({ children }: { children: ReactNode }) => {
       },
     }).then((res) => {			
 			if (page && page > 0) {
-				console.log(pages);
 				
 				setAllBeers((prev) => [...allBeers, ...res.data])
-				console.log(allBeers, res.data);
 				
 				setPages(pages + 1)
 			} else {
-				console.log(page);
 				setAllBeers(res.data)
 			} 
 		
